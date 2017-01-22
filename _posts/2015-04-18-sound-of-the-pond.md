@@ -14,7 +14,7 @@ Imagine you can only see the world through echolocation? Try to reach the border
 
 ## The context
 
-![](../assets/content/logo.png)
+![](../assets/content/SOP/logo.png)
 
 This game was made in 48h during the Global Game Jam 2014 in Paris.
 
