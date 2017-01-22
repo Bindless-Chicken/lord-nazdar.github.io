@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		{% include head.html %}
+	</head>
+	<body>
+		<div class="container-fluid post-hero text-center">
+
+			<a href="/" class="fa fa-angle-left go-out link-clean"></a>
+
+			<div class="post-bgimage">
+				<img class="post-featureimage" src="/assets/content/{{ page.feature.image }}" style="top:{{ page.feature.top }};">
+				<div class="post-bggradient"></div>
+			</div>
+
+			<div class="container">
+				<div class="row align-items-center post-title">
+					<div>
+						<h1>{{ page.title }}</h1>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="container-fluid post-content">
+
+			<div class="container">
+				{{ content }}
+			</div>
+
+		</div>
+
+		<a href="#" class="fa fa-angle-up go-up link-clean"></a>
+
+		{% include footer.html %}
+
+		{% include credits.html %}
+
+	</body>
+</html>

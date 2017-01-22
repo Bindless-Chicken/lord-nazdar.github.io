@@ -1,0 +1,45 @@
+footer {
+	background-color: white;
+
+	padding-top: 5em;
+	padding-bottom: 3em;
+
+	h2 {
+		text-align: center;
+		margin-bottom: 1em;
+		font-weight: bold;
+	}
+
+	p:not(.presentation) {
+		text-align: center;
+	}
+	
+	hr {
+		margin: 2em 0;
+	}
+
+	p.presentation {
+		font-size: 1.5em;
+	}
+
+	ul.social {
+		@include make-row();
+		justify-content: center;
+
+		margin: 1em 0;
+
+		li {
+			@include make-col-ready();
+			@include make-col(1);
+
+			a {
+				color: black;
+				font-size: 2em;
+				text-align: center;
+			}
+
+		}
+
+	}
+
+}

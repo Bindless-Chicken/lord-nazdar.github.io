@@ -1,0 +1,21 @@
+.credits{
+	background-color: white;
+
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+
+	.footer-legal{
+		font-size: 0.8em;
+		color: $gray-light;
+
+		a {
+			color: $gray-light;
+		}
+
+	}
+
+}
+

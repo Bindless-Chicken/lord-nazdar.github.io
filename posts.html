@@ -1,0 +1,33 @@
+---
+layout: main
+title: All Posts
+---
+
+<div class="container-fluid homepage-jumbotron text-center">
+	<h1>All posts</h1>
+	{% assign post_count = site.posts | size %}
+	<p>Currently looking at {{ post_count}} post{% if post_count > 1 %}s{% endif %}</p>
+</div>
+
+<div class="posts-list container-fluid">
+	<div class="container">
+		<ul class="all-posts clean-list">
+			{% if post_count > 0 %}
+				{% for post in site.posts %}
+					<li>
+						{% include post-link.html %}
+					</li>
+				{% endfor %}
+			{% else %}
+				<li class="no-post">
+					<a class="link-clean" href="/">
+						<div class="post-info">
+							<h2>Damn, nothing here!</h2>
+							<p>Go back to the homepage.</p>
+						</div>
+					</a>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,57 @@
+.post-content {
+
+	padding: 5em 0;
+
+	background-color: white;
+
+	text-align: justify;
+
+	img {
+		width: 100%;
+	}
+
+	.container {
+
+		@include media-breakpoint-up(sm) {
+
+			width: 490px;
+
+			.large-content {
+				margin-left: -3em;
+				margin-right: -3em;
+			}
+
+		}
+
+		@include media-breakpoint-up(md) {
+
+			width: 670px;
+
+			.large-content {
+				margin-left: -3em;
+				margin-right: -3em;
+			}
+
+		}
+
+		@include media-breakpoint-up(lg) {
+
+			.large-content {
+				margin-left: -6em;
+				margin-right: -6em;
+			}
+
+		}
+
+		@include media-breakpoint-up(xl) {
+
+			.large-content {
+				margin-left: -9em;
+				margin-right: -9em;
+			}
+
+		}
+
+	}
+
+}

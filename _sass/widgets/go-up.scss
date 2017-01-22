@@ -1,0 +1,21 @@
+.go-up {
+	position: fixed;
+	right: 1em;
+	bottom: 1em;
+
+	background-color: $gray-dark;
+
+	border-radius: 1em;
+	font-size: 2em;
+	text-decoration: none;
+	color: white;
+	width: 1em;
+	height: 1em;
+	padding-left: 0.17em;
+	line-height: 0.9em;
+
+	&:hover {
+		color: black;
+		background-color: white;
+	}
+}

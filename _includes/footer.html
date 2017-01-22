@@ -1,0 +1,85 @@
+<footer class="container-fluid">
+
+	<div class="container">
+
+		<div class="row justify-content-md-center">
+
+			<div class="col-xs-12 col-md-7">
+
+				<h2>Howdy!</h2> 
+
+				<p class="presentation">
+
+				Hi, I'm <a href="/about">{{ site.owner.name }}</a>. {{ site.description }}
+
+				</p>
+
+				<hr>
+
+				<p>{{ site.created }} by <a href="/about">{{ site.owner.name }}</a></p>
+
+				<ul class="social clean-list">
+
+					{% if site.owner.twitter %}
+					<li>
+						<a href="{{ site.owner.twitter }}"><i class="fa fa-twitter"></i></a>
+					</li>
+					{% endif %}
+
+					{% if site.owner.facebook %}
+					<li>
+						<a href="{{ site.owner.facebook }}"><i class="fa fa-facebook"></i></a>
+					</li>
+					{% endif %}
+
+					{% if site.owner.github %}
+					<li>
+						<a href="{{ site.owner.github }}"><i class="fa fa-github"></i></a>
+					</li>
+					{% endif %}
+
+					{% if site.owner.stackexchange %}
+					<li>
+						<a href="{{ site.owner.stackexchange }}"><i class="fa fa-stack-overflow"></i></a>
+					</li>
+					{% endif %}
+
+					{% if site.owner.linkedin %}
+					<li>
+						<a href="{{ site.owner.linkedin }}"><i class="fa fa-linkedin"></i></a>
+					</li>
+					{% endif %}
+
+					{% if site.owner.instagram %}
+					<li>
+						<a href="{{ site.owner.instagram }}"><i class="fa fa-instagram"></i></a>
+					</li>
+					{% endif %}
+
+					{% if site.owner.flickr %}
+					<li>
+						<a href="{{ site.owner.flickr }}"><i class="fa fa-flickr"></i></a>
+					</li>
+					{% endif %}
+
+					{% if site.owner.tumblr %}
+					<li>
+						<a href="{{ site.owner.tumblr }}"><i class="fa fa-tumblr"></i></a>
+					</li>
+					{% endif %}
+
+					{% if site.owner.google_plus %}
+					<li>
+						<a href="{{ site.owner.google_plus }}"><i class="fa fa-google-plus"></i></a>
+					</li>
+					{% endif %}
+
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</footer>
