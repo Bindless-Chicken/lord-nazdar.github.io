@@ -45,6 +45,7 @@ foreach pixel{
 As you can see, the bigger the image, the longer it takes. This is why this method is mainly used in film and animation industry, where the images can be rendered before display.
 
 ## Renderer
+
 ### Casting Rays
 
 As we saw during the introduction, ray tracer is all about casting rays to objects and getting their position back. As we will see later on in the series, there is multiple ways to represent surfaces (triangles, quads, primitive geometries …), however for this first few weeks I chose to limit myself to sphere primitives.
@@ -124,8 +125,10 @@ Here is the result non-shaded and shaded.
 <iframe width="854" height="510" style="width:100%;" src="https://www.youtube.com/embed/pF59BhA4Ffk?loop=1&playlist=pF59BhA4Ffk" frameborder="0" allowfullscreen></iframe>
 
 ## Next Week
+
 Next week I will try to implement **shadows** as well as improving the current **scene accelerator**.  
 Even if the AABB test is currently in the code, I chose not to talk about it here, in order to keep content and to leave myself a bit more time to fix some bugs.
 
 ## Reference
+
 Pharr, Matt, and Greg Humphreys. *Physically based rendering: From theory to implementation.* Morgan Kaufmann, 2004. 

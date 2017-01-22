@@ -14,6 +14,7 @@ mathjax: yes
 Quite a busy week on a professional point of view, I didn’t get as much free time as I expected. That’s why this chronicle might feel a little bit empty. Without further ado, let's proceed!
 
 ## Renderer
+
 ### Shadows
 
 Shadows, or at least hard shadows are easy to compute. You only need to know if you can “see” the light source from your current “position”.
@@ -36,6 +37,7 @@ This week, we have a new animation with shadows. I also made a second scene with
 <iframe width="854" height="510" style="width:100%;" src="https://www.youtube.com/embed/OeDidPrlsXM?loop=1&playlist=OeDidPrlsXM" frameborder="0" allowfullscreen></iframe>
 
 ## Scene Management
+
 ### Scene Accelerator
 
 The best way to optimize the rendering time is to reduce the number of calculations you have to do for one frame. One way to do this is by using scene accelerators, one of the easiest to implement is the AABB.  
