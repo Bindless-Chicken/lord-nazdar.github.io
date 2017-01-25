@@ -12,6 +12,11 @@
 
 	.container {
 
+		.auto-content img {
+			width: auto;
+		}
+
+
 		@include media-breakpoint-up(sm) {
 
 			width: 490px;
