@@ -89,7 +89,7 @@ Nothing fancy here, just the bare minimum to get the system running with a decen
 
 In order to do some testing I wired everything onto a small matrix PCB, for a first time using matrix PCB the result is not too bad, but things could have gone way more smoothly. 
 
-![Schematic](../assets/content/EMG/board.jpg)
+![Schematic](../assets/content/EMG/board.JPG)
 {: .large-content}
 
 The first test was done using a fixed resistor of 1k ohms. This was mostly inconclusive as we found out that the correct amplification value was highly dependent of the subject, the muscle, and the electrode position.
