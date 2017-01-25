@@ -82,7 +82,7 @@ To do this I decided to use the MAX1044 a Switched-Capacitor Voltage Converter, 
 
 With all the big parts selected it is now time to create the schematic. 
 
-![Schematic](../assets/content/EMG/schematic.jpg)
+![Schematic](../assets/content/EMG/schematic.JPG)
 
 Nothing fancy here, just the bare minimum to get the system running with a decent signal integrity. 
 
