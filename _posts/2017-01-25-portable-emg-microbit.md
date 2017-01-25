@@ -8,6 +8,7 @@ feature:
   image: EMG/feature.jpg
   top: -250px
 mathjax: yes
+comments: yes
 ---
 ## Introduction
 

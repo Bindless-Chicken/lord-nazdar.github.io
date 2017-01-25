@@ -7,6 +7,7 @@ tag:  Project
 feature:
   image: Movie/feature.jpg
 mathjax: yes
+comments: yes
 ---
 Movie Barcode is a thing that always excited my curiosity, but for whatever reasons I never actually tried to generate one myself.
 Few days ago reappeared on [r/dataisbeatiful](https://www.reddit.com/r/dataisbeautiful/comments/3rb8zi/the_average_color_of_every_frame_of_a_given_movie/) a thread about movie barcodes, as I was looking for a new python project I decided to take a shot at it.

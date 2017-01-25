@@ -8,6 +8,7 @@ feature:
   image: Sampling/feature.png
   top: -150px
 mathjax: yes
+comments: yes
 ---
 ## Introduction
 
