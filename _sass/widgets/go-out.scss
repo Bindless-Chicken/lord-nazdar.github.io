@@ -1,6 +1,6 @@
 .go-out {
 	z-index: 2;
-	position: absolute;
+	position: fixed;
 	left: 1em;
 	top: 1em;
 
@@ -17,6 +17,10 @@
 
 	&:hover {
 		color: black;
-		background-color: white;
+		background-color: #EEE;
+	}
+
+	&:visited {
+		color: white;
 	}
 }

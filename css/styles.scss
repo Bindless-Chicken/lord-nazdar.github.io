@@ -10,11 +10,13 @@
 @import "common/mixins";
 @import "common/lists";
 @import "common/links";
+@import "common/quotes";
 
 @import "common";
 
 @import "widgets/go-up";
 @import "widgets/go-out";
+@import "widgets/disqus";
 
 @import "blocks/footer";
 @import "blocks/credits";

@@ -22,28 +22,36 @@
 	background-color: $gray-lighter;
 	padding-bottom: 0em;
 
-	&:before {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
+	&:not(.single-post) {
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
 
-		height: 6em;
-		background-color: white;
+			height: 6em;
+			background-color: white;
+		}
+
+		&.post-overflow{
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 1.5em;
+				background-color: white;
+				z-index: 9;
+			}
+		}
 	}
 
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 1.5em;
-		background-color: white;
-		z-index: 9;
+	&.single-post {
+		padding-top: 2em;
 	}
 
 
@@ -140,10 +148,6 @@
 					@include make-col(6);
 				}
 
-			}
-
-			li.no-post {
-				margin-top: 3em;
 			}
 
 		}

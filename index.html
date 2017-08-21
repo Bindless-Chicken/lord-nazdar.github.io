@@ -8,14 +8,33 @@ title: Latest Posts
 	<p>{{ site.description }}</p>
 </div>
 
+{% assign post_count = site.posts | size %}
+
+{% if post_count > 6 %}
+<div class="posts-list container-fluid post-overflow">
+{% elsif post_count > 1 %}
 <div class="posts-list container-fluid">
+{% else %}
+<div class="posts-list container-fluid single-post">
+{% endif%}
 	<div class="container">
 		<ul class="clean-list">
-			{% for post in paginator.posts %}
-				<li>
-					{% include post-link.html %}
+			{% if post_count > 0 %}
+				{% for post in paginator.posts %}
+					<li>
+						{% include post-link.html %}
+					</li>
+				{% endfor %}
+			{% else %}
+				<li class="no-post">
+					<a class="link-clean" href="/">
+						<div class="post-info">
+							<h2>There is nothing there, yet!</h2>
+							<p>I'm sure it will come soon.</p>
+						</div>
+					</a>
 				</li>
-			{% endfor %}
+			{% endif %}
 		</ul>
 		{% if paginator.next_page %}
 			<div class="container more-article">

@@ -1,6 +1,6 @@
 .post-content {
 
-	padding: 5em 0;
+	padding: 5em 0 2em;
 
 	background-color: white;
 
@@ -11,11 +11,6 @@
 	}
 
 	.container {
-
-		.auto-content img {
-			width: auto;
-		}
-
 
 		@include media-breakpoint-up(sm) {
 
