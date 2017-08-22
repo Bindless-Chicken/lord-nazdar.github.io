@@ -40,7 +40,7 @@ future:         true
 highlighter:    rouge
 markdown:       kramdown
 
-gems:
+plugins:
   - jekyll-watch
   - jekyll-paginate
 
