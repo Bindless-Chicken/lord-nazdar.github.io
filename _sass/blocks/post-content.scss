@@ -12,6 +12,16 @@
 
 	.container {
 
+		.small-content {
+			display: block;
+			text-align: center;
+
+			img{
+				width: 30%;
+				height: auto;
+			}
+		}
+
 		@include media-breakpoint-up(sm) {
 
 			width: 490px;
