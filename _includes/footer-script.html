@@ -3,3 +3,12 @@
 		src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 	</script>
 {% endif %}
+{% if page.slider == true %}
+	<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
+	<script>
+		var sliders = document.getElementsByClassName('beer-slider');
+		for (var i = 0; i < sliders.length; ++i) {
+			new BeerSlider(sliders[i]);
+		}
+	</script>
+{% endif %}
