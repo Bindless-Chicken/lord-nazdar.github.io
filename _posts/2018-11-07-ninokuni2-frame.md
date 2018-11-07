@@ -359,5 +359,6 @@ For the last step, the dynamic layer of the minimap and the combat UI (expect in
 
 ## Conclusion
 
-With the UI finally done, our frame is fully rendered, and the end for this article is here. 
-Let's be honest, there is still a lot to be said about the rendering of this game, I have not touched in the article the rendering of the outdoor scenes and the cities. There are a lot of little trick here and there, but my main interest going into this analysis was how this very distinctive style was achieved.
+With the UI finally done, our frame is fully rendered, and the end for this article is here.  
+
+Let's be honest, there is still a lot to be said about the rendering of this game, I have not touched in the article the rendering of the outdoor scenes and the cities. There are a lot of little trick here and there, but my main interest going into this analysis was how this very distinctive style was achieved.  Turns out, it is a mix of carefully crafted textures and models, and a lot of control given to the artists on the final look. The real surprise was on the number and variety of anti-aliasing methods used in the process of rendering a frame, most likely done to suit the artistic need of a very soft and smooth world.
