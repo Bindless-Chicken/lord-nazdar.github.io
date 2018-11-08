@@ -79,10 +79,10 @@ Interesting to note that this operation is done In a compute pipeline, and the o
 
 Before adding the color to the depth, there a last step I want to look at. Only happening for indoor environment, this pass is rendering the light scattering effect, also called Light Rays or God Rays.  
 
-<div id="slider" class="beer-slider" data-beer-label="Red">
-  <img src="../assets/content/Ninokuni2/scattering-ray.png" alt="">
-  <div class="beer-reveal" data-beer-label="Green">
-    <img src="../assets/content/Ninokuni2/scattering-depth.png" alt="">
+<div id="slider" class="beer-slider" data-beer-label="Green">
+  <img src="../assets/content/Ninokuni2/scattering-depth.png" alt="">
+  <div class="beer-reveal" data-beer-label="Red">
+    <img src="../assets/content/Ninokuni2/scattering-ray.png" alt="">
   </div>
 </div>
 
@@ -132,10 +132,10 @@ Finally, the alpha channel is a measure of the relative depth of the characters.
 The line effect is rendered in three drawcalls, just after the main color render pass. The first pass generates a texture using the results of the multiple render targets defined before. The red channel is a copy of the third render target alpha channel, the dot product of the vertex to the camera. The green is a copy of the fourth render target green or the blend factor of the line art. The alpha channel is a copy of the alpha channel of the fourth render target, the distance of the character to the camera. This packing is done to reduce the number of texture to access during the rendering.  
 
 {: .large-content}
-<div id="slider1" class="beer-slider" data-beer-label="Output">
-  <img src="../assets/content/Ninokuni2/line-1.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="Blue">
-    <img src="../assets/content/Ninokuni2/line-blue.jpg" alt="">
+<div id="slider1" class="beer-slider" data-beer-label="Blue">
+  <img src="../assets/content/Ninokuni2/line-blue.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Output">
+    <img src="../assets/content/Ninokuni2/line-1.jpg" alt="">
   </div>
 </div>
 {: .large-content}
@@ -167,10 +167,10 @@ float dirReduce = max((lumaNW + lumaNE + lumaSW + lumaSE) * (0.25 * FXAA_REDUCE_
 I am still unsure why they decided to use FXAA here, when the line art texture had already been multisampled before, and as we will see, another fullscreen antialisaing pass will be applied later on.  
 
 {: .large-content}
-<div id="slider2" class="beer-slider" data-beer-label="Before">
-  <img src="../assets/content/Ninokuni2/color-0.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="After">
-    <img src="../assets/content/Ninokuni2/line-final.jpg" alt="">
+<div id="slider2" class="beer-slider" data-beer-label="After">
+  <img src="../assets/content/Ninokuni2/line-final.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Before">
+    <img src="../assets/content/Ninokuni2/color-0.jpg" alt="">
   </div>
 </div>
 {: .large-content}
@@ -188,15 +188,15 @@ The simple shadow at the feet of the characters are then added on top, and the o
 ![SSAO + Shadow](../assets/content/Ninokuni2/ssao-blur.jpg)
 
 {: .large-content}
-<div id="slider3" class="beer-slider" data-beer-label="Before">
-  <img src="../assets/content/Ninokuni2/line-final.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="After">
-    <img src="../assets/content/Ninokuni2/ssao-output.jpg" alt="">
+<div id="slider3" class="beer-slider" data-beer-label="After">
+  <img src="../assets/content/Ninokuni2/ssao-output.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Before">
+    <img src="../assets/content/Ninokuni2/line-final.jpg" alt="">
   </div>
 </div>
 {: .large-content}
 
-### Antu-Aliasing
+### Anti-Aliasing
 
 Ni no Kuni 2 is not using any kind of built-in multisampling anti-aliasing, instead, everything is done in post using SMAA. SMAA is a direct improvement of the already popular MLAA. I will not go in-depth about this methods, you can find both of them online, at these addresses: [SMAA](https://iryoku.com/smaa/) and [MLAA](https://iryoku.com/mlaa/).  
 
@@ -260,19 +260,19 @@ To achieve the desired result, Ni no Kuni 2 uses three different downscaled blur
 
 First off, the brighter area are extracted from the color image.  
 
-<div id="slider4" class="beer-slider" data-beer-label="Input">
-  <img src="../assets/content/Ninokuni2/bloom-b.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="Output">
-    <img src="../assets/content/Ninokuni2/bloom0.jpg" alt="">
+<div id="slider4" class="beer-slider" data-beer-label="Output">
+  <img src="../assets/content/Ninokuni2/bloom0.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Input">
+    <img src="../assets/content/Ninokuni2/bloom-b.jpg" alt="">
   </div>
 </div>
 
 This is done by darkening the main color image and a half resolution version of it. To avoid artifacts from the high contrast area on the down scaled version a crude edge detection is done and the area contrast lowered.
 
-<div id="slider5" class="beer-slider" data-beer-label="Input">
-  <img src="../assets/content/Ninokuni2/bloom0.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="Edges">
-    <img src="../assets/content/Ninokuni2/bloom-down-edge.jpg" alt="">
+<div id="slider5" class="beer-slider" data-beer-label="Edges">
+  <img src="../assets/content/Ninokuni2/bloom-down-edge.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Input">
+    <img src="../assets/content/Ninokuni2/bloom0.jpg" alt="">
   </div>
 </div>
 
@@ -309,10 +309,10 @@ Note that the framebuffer resolution is not reduced, and the downscaling is done
 Finally, the bloom is applied on the original color image.  
 
 {: .large-content}
-<div id="slider6" class="beer-slider" data-beer-label="Before">
-  <img src="../assets/content/Ninokuni2/smaa-final.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="After">
-    <img src="../assets/content/Ninokuni2/with-bloom.jpg" alt="">
+<div id="slider6" class="beer-slider" data-beer-label="After">
+  <img src="../assets/content/Ninokuni2/with-bloom.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Before">
+    <img src="../assets/content/Ninokuni2/smaa-final.jpg" alt="">
   </div>
 </div>
 {: .large-content}
@@ -321,10 +321,10 @@ Finally, the bloom is applied on the original color image.
 Rendering the user interface is done in four different steps. The first part of the UI to be rendered are the quest markers and other in-scene elements like the name of the enemies. Special mention for the multi-alphabet texture used to render the text, fully using the 4 channels. I could identify the Greek, Cyrillic, Latin, Japanese, Chinese alphabets, and some other random ascii symbols.  
 
 {: .large-content}
-<div id="slider7" class="beer-slider" data-beer-label="Before">
-  <img src="../assets/content/Ninokuni2/with-bloom.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="After">
-    <img src="../assets/content/Ninokuni2/UI0-a.jpg" alt="">
+<div id="slider7" class="beer-slider" data-beer-label="After">
+  <img src="../assets/content/Ninokuni2/UI0-a.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Before">
+    <img src="../assets/content/Ninokuni2/with-bloom.jpg" alt="">
   </div>
 </div>
 {: .large-content}
@@ -332,10 +332,10 @@ Rendering the user interface is done in four different steps. The first part of 
 Next step is to render the on-screen static UI elements, such as the quest information on the right, and the background for the minimap.
 
 {: .large-content}
-<div id="slider8" class="beer-slider" data-beer-label="Before">
-  <img src="../assets/content/Ninokuni2/UI0-a.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="After">
-    <img src="../assets/content/Ninokuni2/UI1-a.jpg" alt="">
+<div id="slider8" class="beer-slider" data-beer-label="After">
+  <img src="../assets/content/Ninokuni2/UI1-a.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Before">
+    <img src="../assets/content/Ninokuni2/UI0-a.jpg" alt="">
   </div>
 </div>
 {: .large-content}
@@ -349,10 +349,10 @@ Next, the dynamic elements of the minimap, characters position, quest markers, a
 For the last step, the dynamic layer of the minimap and the combat UI (expect in cities) are added to the main color image.  
 
 {: .large-content}
-<div id="slider9" class="beer-slider" data-beer-label="Before">
-  <img src="../assets/content/Ninokuni2/UI1-a.jpg" alt="">
-  <div class="beer-reveal" data-beer-label="After">
-    <img src="../assets/content/Ninokuni2/UI3-a.jpg" alt="">
+<div id="slider9" class="beer-slider" data-beer-label="After">
+  <img src="../assets/content/Ninokuni2/UI3-a.jpg" alt="">
+  <div class="beer-reveal" data-beer-label="Before">
+    <img src="../assets/content/Ninokuni2/UI1-a.jpg" alt="">
   </div>
 </div>
 {: .large-content}
@@ -361,4 +361,4 @@ For the last step, the dynamic layer of the minimap and the combat UI (expect in
 
 With the UI finally done, our frame is fully rendered, and the end for this article is here.  
 
-Let's be honest, there is still a lot to be said about the rendering of this game, I have not touched in the article the rendering of the outdoor scenes and the cities. There are a lot of little trick here and there, but my main interest going into this analysis was how this very distinctive style was achieved.  Turns out, it is a mix of carefully crafted textures and models, and a lot of control given to the artists on the final look. The real surprise was on the number and variety of anti-aliasing methods used in the process of rendering a frame, most likely done to suit the artistic need of a very soft and smooth world.
+Let's be honest, there is still a lot to be said about the rendering of this game, I have not touched in the article the rendering of the outdoor scenes and the cities. There are a lot of little trick here and there, but my main interest going into this analysis was how this very distinctive style was achieved.
