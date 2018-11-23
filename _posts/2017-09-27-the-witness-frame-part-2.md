@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "The Witness: frame analysis part 2"
+description: Follow up to the previous article in the series on The Witness, this time detailing some specific effects, like texture blending and indoor shadows.
 date:   2017-09-27 12:00:00
 excerpt:
 tag:  Project

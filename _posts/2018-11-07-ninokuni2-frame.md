@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Ni No Kuni 2: frame analysis"
+description: In depth analysis of the steps required to get a frame from Ni No Kuni 2 onto the screen.
 date:   2018-11-07 12:00:00
 excerpt:
 tag:  Project

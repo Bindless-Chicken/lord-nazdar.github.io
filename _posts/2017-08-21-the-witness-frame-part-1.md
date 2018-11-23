@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "The Witness: frame analysis part 1"
+description: In depth analysis of the steps required to get a frame from The Witness onto the screen.
 date:   2017-08-21 19:41:00
 excerpt:
 tag:  Project

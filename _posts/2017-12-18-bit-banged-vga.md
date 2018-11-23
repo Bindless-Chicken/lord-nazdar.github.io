@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "An approach to VGA on an 8-bit microcontroller"
+description: A quick project aimed at producing valid VGA signal on a 8bit micro.
 date:   2017-12-18 12:00:00
 excerpt:
 tag:  Project
