@@ -30,7 +30,7 @@ Let’s try the naivest thing we can think of. The below equation is the convers
 
 $$ \left\lbrace\begin{array}{l}
 x=r\sin\theta\cos\varphi\\\\
-y=r\sin\theta\cos\varphi\\\\
+y=r\sin\theta\sin\varphi\\\\
 z=r\cos\theta
 \end{array}\right.$$
 
@@ -45,7 +45,7 @@ def random_spherical(u, v):
 
     # Switch to cartesian coordinates
     x = np.sin(theta) * np.cos(phi)
-    y = np.cos(theta) * np.cos(phi)
+    y = np.sin(theta) * np.sin(phi)
 
     return x, y
 ```
@@ -198,7 +198,7 @@ The result is a uniform sampling on the disk with low distortion, nor loss of sa
 
 ## Hemisphere: Cosine Weighted Sampling
 
-The goal of this technique is to map a square to a disk using a cosine power distribution to choose the shape and the density of distribution. 
+The goal of this technique is to map a square to a disk using a cosine power distribution to choose the shape and the density of distribution.
 
 ![Figure 4](../assets/content/Sampling/fig4.png)
 
@@ -252,7 +252,7 @@ We now have to valid solutions to generate uniform sampling on unit disk and hem
 {: .large-content}
 > From left to right, top to bottom
 
-The code is available in Python on Github under the MIT license: [https://github.com/Lord-Nazdar/Sampling-Python](https://github.com/Lord-Nazdar/Sampling-Python). 
+The code is available in Python on Github under the MIT license: [https://github.com/Lord-Nazdar/Sampling-Python](https://github.com/Lord-Nazdar/Sampling-Python).
 
 ## References
 
