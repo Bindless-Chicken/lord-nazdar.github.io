@@ -2,7 +2,7 @@
 layout: post
 title:  Uniform Sampling on unit Hemisphere
 date:   2015-08-16 15:22:24
-excerpt: Different ways to sample over and unit Hemisphere
+description: Different ways to sample over and unit Hemisphere
 tag:  Project
 feature:
   image: Sampling/feature.png

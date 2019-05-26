@@ -2,7 +2,7 @@
 layout: post
 title:  Movie Barcode
 date:   2015-11-21 15:22:24
-excerpt: Study on how to best generate movie barcodes
+description: Study on how to best generate movie barcodes
 tag:  Project
 feature:
   image: Movie/feature.jpg

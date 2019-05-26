@@ -2,7 +2,7 @@
 layout: post
 title:  Shadows
 date:   2015-07-04 15:22:24
-excerpt:  Long running path tracer project. Shadows.
+description:  Long running path tracer project. Shadows.
 tag:  Project
 feature:
   image: Path/feature-2.png

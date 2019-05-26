@@ -2,7 +2,7 @@
 layout: post
 title:  Designing a portable EMG based on the BBC micro:bit 
 date:   2017-01-25 17:58:00
-excerpt: 
+description: Proof of concept for using the BBC micro:bit as a portable EMG
 tag:  Project
 feature:
   image: EMG/feature.jpg

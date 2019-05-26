@@ -2,7 +2,7 @@
 layout: post
 title:  Animation pathtracer from scratch
 date:   2015-06-20 16:22:24
-excerpt: Long running path tracer project. Introduction.
+description: Long running path tracer project. Introduction.
 tag:  Project
 feature:
   image: Path/feature-1.png
@@ -57,11 +57,11 @@ $$x^2+y^2+z^2=r^2$$
 $$\parallel p - p_{c} \parallel ^2 = r^2$$
 
 With \\(p\\) a point on the sphere and \\(p_{c}\\) the sphere center point.
-We also have the ray equation: 
+We also have the ray equation:
 
 $$x=td+p_{o}$$
 
-With \\(t\\) the distance along the line of the point from the origin, \\(d\\) the direction of the ray, and \\(p_{o}\\) the origin point of the ray.  
+With \\(t\\) the distance along the line of the point from the origin, \\(d\\) the direction of the ray, and \\(p_{o}\\) the origin point of the ray.
 We can combine the two equations to get the intersection point:
 
 $$\parallel (td+p_{o})-p_{c} \parallel^2 = r^2$$
@@ -78,13 +78,13 @@ As soon as we are able to detect collision between our objects and our rays, we 
 
 As we can see, in this first version we have ray leaving the camera, as soon as it encounter an object we get the normal to the surface to know if the point is illuminated.
 
-$$ intersection = rayOrigin + (rayDirection * distanceToIntersection)$$ 
+$$ intersection = rayOrigin + (rayDirection * distanceToIntersection)$$
 
 $$ \left\lbrace\begin{array}{l}
 x = \frac{intersectionX}{radius}\\\\
 y = \frac{intersectionY}{radius}\\\\
 z = \frac{intersectionZ}{radius}
-\end{array}\right.$$ 
+\end{array}\right.$$
 
 The first picture is the non-shaded version, the visible faces to the light are bright and the other aren’t. Tzhe second one is a shaded version including the shading factor based on the dot product of the vector to the light. The scene is also illuminated by an atmospheric light, for debug purposes.
 
@@ -118,7 +118,7 @@ The simplest animation I could implement in my code was the rotation of the ligh
 $$ \left\lbrace\begin{array}{l}
 x = radius * cos(frame * speed)\\\\
 y = radius * sin(frame * speed)\\\\
-\end{array}\right.$$  
+\end{array}\right.$$
 
 Here is the result non-shaded and shaded.
 <iframe width="854" height="510" style="width:100%;" src="https://www.youtube.com/embed/lV75r4ZB0Ks?loop=1&playlist=lV75r4ZB0Ks" frameborder="0" allowfullscreen></iframe>
@@ -126,9 +126,9 @@ Here is the result non-shaded and shaded.
 
 ## Next Week
 
-Next week I will try to implement **shadows** as well as improving the current **scene accelerator**.  
+Next week I will try to implement **shadows** as well as improving the current **scene accelerator**.
 Even if the AABB test is currently in the code, I chose not to talk about it here, in order to keep content and to leave myself a bit more time to fix some bugs.
 
 ## Reference
 
-Pharr, Matt, and Greg Humphreys. *Physically based rendering: From theory to implementation.* Morgan Kaufmann, 2004. 
+Pharr, Matt, and Greg Humphreys. *Physically based rendering: From theory to implementation.* Morgan Kaufmann, 2004.

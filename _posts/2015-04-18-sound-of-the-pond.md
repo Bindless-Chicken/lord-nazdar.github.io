@@ -2,7 +2,7 @@
 layout: post
 title:  Sound of the pond
 date:   2015-04-18 15:22:24
-excerpt: Imagine you can only see the world through echolocation? This is our submission to the Global Game Jam 2014.
+description: Imagine you can only see the world through echolocation? This is our submission to the Global Game Jam 2014.
 tag:  Project
 feature:
   image: SOP/logo.png
