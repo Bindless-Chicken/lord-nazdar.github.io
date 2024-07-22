@@ -41,6 +41,28 @@
 			}
 		}
 
+		.quote-note {
+			border-color: #3498db;
+			color: #2980b9;
+			background-color: #2980b920;
+			padding: 1em;
+
+			p {
+				margin: 0;
+			}
+		}
+
+		.quote-warning {
+			border-color: #e67e22;
+			color: #d35400;
+			background-color: #d3540020;
+			padding: 1em;
+
+			p {
+				margin: 0;
+			}
+		}
+
 		@include media-breakpoint-up(sm) {
 
 			width: 490px;

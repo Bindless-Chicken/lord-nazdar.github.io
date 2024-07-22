@@ -7,4 +7,5 @@ gem 'minima'
 group :jekyll_plugins do
   gem 'jekyll-watch'
   gem 'jekyll-paginate'
+  gem 'webrick'
 end
