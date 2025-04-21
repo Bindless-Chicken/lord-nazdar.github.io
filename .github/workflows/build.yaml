@@ -33,8 +33,6 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - run: npm ci
-
       - name: Cache Restore
         id: cache-restore
         uses: actions/cache/restore@v4
