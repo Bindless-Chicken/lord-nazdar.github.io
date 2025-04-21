@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
-#/ Usage: build BASE_URL CACHE_DIR
-
-set -e
-
-show_help() { grep ^#/ <"${0}" | cut -c4-; }
-[ "${*}" == "-h" ] && show_help && exit 0
-
-BASE_URL="${1:-https://howtoxiny.org}"
-CACHE_DIR="${2:-$(pwd)/.cache}"
-
-echo "Building site to ${BASE_URL} with cache in ${CACHE_DIR}"
+CACHE_DIR="${1:-$(pwd)/.cache}"
 
 hugo \
     --gc \
@@ -17,5 +7,4 @@ hugo \
     --printPathWarnings \
     --printI18nWarnings \
     --printUnusedTemplates \
-    --baseURL "${BASE_URL}" \
     --cacheDir "${CACHE_DIR}"

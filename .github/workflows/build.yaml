@@ -33,6 +33,8 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - run: chmod +x build
+
       - name: Cache Restore
         id: cache-restore
         uses: actions/cache/restore@v4
