@@ -50,7 +50,7 @@ googleAnalytics = "UA-49597255-2"
 [params]
   logo = ""
   logo_dark = ""
-  description = "Thomas Poulet presonal blog about rendering, technology, and game development"
+  description = "Thomas Poulet's blog on rendering, technology, and game development."
   color_scheme = "auto"
   math = true
 
