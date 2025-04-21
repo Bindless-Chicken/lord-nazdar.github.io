@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+{{ if .Params.cover }}
+<!-- begin hero image -->
+<div class="hero__image">
+  <div class="hero__image__inner">
+    <img class="lazy" data-src="{{ .Params.cover }}" alt="{{ .Params.name }}">
+  </div>
+</div>
+<!-- end hero image -->
+{{ end }}
+
+<!-- begin author -->
+<section class="author">
+  <div class="container">
+    <div class="page-head">
+      <div class="page-image">
+        <img class="lazy" data-src="{{ .Params.pageimage | absURL }}" alt="{{ .Params.name }}">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <article class="page">
+
+      <div class="page__content">
+        <!--<div class="author__image"><img class="lazy" data-src="{{ .Params.image }}" alt="{{ .Params.name }}"></div>-->
+        <!--<h1 class="author__name">{{ .Params.name }}</h1>-->
+        <!--<div class="author__posts__count">{{ len .Pages }} {{ if lt (len .Pages) 2 }}Post{{ else }}Posts{{ end }}</div>-->
+
+        <!--<div class="author__info">-->
+        <!--  {{ if .Params.location }}-->
+        <!--    <span class="author__social__item"><i class="fa-solid fa-location-dot"></i> {{ .Params.location }}</span>-->
+        <!--  {{ end }}-->
+        <!--  {{ if .Params.website }}-->
+        <!--    <a class="author__social__item" href="{{ .Params.website }}" target="_blank" rel="noopener" aria-label="Website link"><i class="fa-solid fa-link"></i> Website</a>-->
+        <!--  {{ end }}-->
+        <!--  {{ if .Params.twitter }}-->
+        <!--    <a class="author__social__item" href="{{ .Params.twitter }}" target="_blank" rel="noopener" aria-label="Twitter link"><i class="fa-brands fa-x-twitter"></i> Twitter</a>-->
+        <!--  {{ end }}-->
+        <!--  {{ if .Params.facebook }}-->
+        <!--    <a class="author__social__item" href="{{ .Params.facebook }}" target="_blank" rel="noopener" aria-label="Facebook link"><i class="fa-brands fa-facebook"></i> Facebook</a>-->
+        <!--  {{ end }}-->
+        <!--</div>-->
+
+        {{ .Content }}
+
+      </div>
+    </article>
+
+  </div>
+
+<!--  <div class="container animate">-->
+<!--    <div class="row">-->
+<!--      {{ $paginator := .Paginate .Data.Pages }}-->
+<!--      {{ range $paginator.Pages }}-->
+<!--        {{ partial "article.html" . }}-->
+<!--      {{ end }}-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--{{ partial "pagination.html" . }}-->
+</section>
+<!-- end author -->
+
+{{ end }}

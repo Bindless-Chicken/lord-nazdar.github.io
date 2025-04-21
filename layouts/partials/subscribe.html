@@ -1,0 +1,33 @@
+{{ if .Site.Params.mailchimp.enable }}
+<!-- begin subscribe -->
+<div class="subscribe animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="subscribe__inner">
+          <div class="subscribe__content">
+          {{ if .Site.Params.mailchimp.mailchimp__title }}
+            <h3 class="subscribe__title">{{ .Site.Params.mailchimp.mailchimp__title }}</h3>
+          {{ end }}
+          {{ if .Site.Params.mailchimp.mailchimp__description }}
+            <p class="subscribe__description">{{ .Site.Params.mailchimp.mailchimp__description }}</p>
+          {{ end }}
+          </div>
+
+          <form class="subscribe-form validate"
+            action="{{ if .Site.Params.mailchimp.mailchimp__identifier }}//{{.Site.Params.mailchimp.mailchimp__identifier}}{{ else }}#{{ end }}"
+            method="POST" id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
+            <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+            <input class="subscribe-email required email" id="mce-EMAIL" type="text" name="EMAIL" placeholder="{{ if .Site.Params.mailchimp.mailchimp__input__text }}{{ .Site.Params.mailchimp.mailchimp__input__text }}{{ else }}Email address{{ end }}">
+            <button class="button button--primary button--big subscribe-button" id="membedded-subscribe" type="submit" name="subscribe">{{ .Site.Params.mailchimp.mailchimp__button__text }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ if .Site.Params.mailchimp.mailchimp__background__image }}
+    <div class="subscribe__bg lazy" data-bg="{{.Site.Params.mailchimp.mailchimp__background__image}}"></div>
+  {{ end }}
+</div>
+<!-- end subscribe -->
+{{ end }}

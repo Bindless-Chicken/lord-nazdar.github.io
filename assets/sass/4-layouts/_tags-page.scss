@@ -1,0 +1,77 @@
+/* Tags */
+.tags__inner {
+
+  .tag__info {
+    padding: 60px 0;
+    text-align: center;
+
+    @media only screen and (max-width: $desktop) {
+      padding: 40px 0;
+    }
+
+    @media only screen and (max-width: $mobile) {
+      padding: 32px 0;
+    }
+  }
+
+  .tag__name {
+    margin-bottom: 0;
+    font-size: 52px;
+    line-height: 1;
+    text-transform: capitalize;
+  }
+
+  .tag__counter {
+    margin-bottom: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+  }
+
+  @media only screen and (max-width: $tablet) {
+    .tag__name {
+      margin-bottom: 16px;
+      font-size: 40px;
+    }
+  }
+
+  @media only screen and (max-width: $mobile) {
+    .tag__name {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+/* Terms Tags */
+.terms-tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 780px;
+  margin: 0 auto;
+
+  .terms-tags__link {
+    padding: 8px 20px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    display: inline-block;
+    text-transform: capitalize;
+    border-radius: 30px;
+    color: var(--link-color);
+    background: var(--background-alt-color);
+  }
+
+  @media only screen and (max-width: $mobile) {
+    .terms-tags__link {
+      padding: 8px 16px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{{ if (.Site.Params.author_section.enable) }}
+<!-- begin section-author -->
+<section class="section section-author animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="section-author__inner">
+
+          <div class="section-author__image{{ if and (.Site.Params.author_section.author__section__big__image) (.Site.Params.author_section.author__section__small__image) }} two-author-images{{ end }}">
+            {{ if .Site.Params.author_section.author__section__big__image }}
+              <img class="lazy author__big__image" data-src="{{ .Site.Params.author_section.author__section__big__image }}" alt="{{ .Site.Params.author_section.author__section__image__alt }}">
+            {{ end }}
+            {{ if .Site.Params.author_section.author__section__small__image }}
+              <img class="lazy author__small__image" data-src="{{ .Site.Params.author_section.author__section__small__image }}" alt="{{ .Site.Params.author_section.author__section__image__alt }}">
+            {{ end }}
+          </div>
+
+          <div class="section-author__content">
+            <h2 class="section-author__title">{{ .Site.Params.author_section.author__section__title }}</h2>
+            <p class="section-author__description">{{ .Site.Params.author_section.author__section__description }}</p>
+            <a href="{{ .Site.Params.author_section.aurhor__section__button__link | relURL }}" class="section-author__button button">{{ .Site.Params.author_section.aurhor__section__button__text }}</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end section-author -->
+{{ end }}

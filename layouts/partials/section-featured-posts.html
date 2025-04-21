@@ -1,0 +1,11 @@
+<!-- begin featured-post -->
+<section class="section featured-post animate">
+  <div class="container">
+    <div class="row">
+    {{ range (where (where .Site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "=" true) }}
+      {{partial "article.html" . }}
+    {{ end }}
+    </div>
+  </div>
+</section>
+<!-- end featured-post -->

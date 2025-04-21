@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+<!-- begin authors -->
+<section class="authors">
+
+  <div class="authors__head">
+    <h1 class="authors__title">{{ .Title }}</h1>
+  </div>
+
+  <div class="authors__inner animate">
+    <div class="container">
+      <div class="row">
+        {{ range .Data.Pages }}
+        <div class="col col-4 col-d-6 col-t-12">
+          <div class="authors__info">
+            <a class="authors__image" href="{{ .Permalink }}"><img class="lazy" data-src="{{ .Params.image }}" alt="{{ .Params.name }}"></a>
+            <h2 class="authors__name"><a class="authors__link" href="{{ .Permalink }}">{{ .Params.name }}</a></h2>
+            <div class="authors__posts__count">{{ len .Pages }} {{ if lt (len .Pages) 2 }}Post{{ else }}Posts{{ end }}</div>
+            <div class="authors__description">{{ .Content }}</div>
+          </div>
+        </div>
+        {{end}}
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- end authors -->
+
+{{ end }}

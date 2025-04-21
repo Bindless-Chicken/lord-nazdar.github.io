@@ -1,0 +1,114 @@
+<!-- begin header -->
+<header class="header">
+  <div class="container-big">
+    <div class="row">
+      <div class="header__inner col col-12">
+
+        <div class="logo">
+          <a class="logo__link" href="{{ .Site.BaseURL }}">
+            {{ if or (.Site.Params.logo) (.Site.Params.logo_dark) }}
+            <img class="logo__image" src="{{ .Site.BaseURL }}{{ .Site.Params.logo }}" alt="{{ .Site.Title }}">
+            <img class="logo__image__dark" src="{{ .Site.BaseURL }}{{ .Site.Params.logo_dark }}" alt="{{ .Site.Title }}">
+            {{ else }}
+              {{ .Site.Title }}
+            {{ end }}
+          </a>
+        </div>
+
+        <div class="hamburger">
+          <div></div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main menu">
+          <div class="main-nav__box">
+            <ul class="nav__list list-reset">
+
+              {{ range.Site.Menus.main }}
+              {{ if .HasChildren }}
+              <li class="nav__item dropdown">
+                <a href="#" class="nav__link dropdown-toggle">{{ .Name }} <i class="fa-solid fa-chevron-down arrow-down"></i></a>
+                <div class="dropdown-menu">
+                  {{ range .Children }}
+                  <a href="{{if findRE `^#` .URL}}{{if not $.IsHome}}{{site.BaseURL | relLangURL}}{{end}}{{ .URL }}{{else}}{{.URL | relLangURL}}{{end}}"
+                    class="nav__link">{{ .Name }}</a>
+                  {{ end }}
+                </div>
+              </li>
+              {{ else }}
+              <li class="nav__item">
+                <a href="{{if findRE `^#` .URL}}{{if not $.IsHome}}{{site.BaseURL | relLangURL}}{{end}}{{ .URL }}{{else}}{{.URL | relLangURL}}{{end}}" class="nav__link">{{ .Name }}</a>
+              </li>
+              {{ end }}
+              {{ end }}
+
+            </ul>
+          </div>
+
+          <div class="nav-button">
+            {{ if eq .Site.Params.color_scheme "auto" }}
+            <div class="toggle-theme toggle-theme-js">
+              <div class="toggle-moon" title="Enable dark mode" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 1472 1536" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="currentColor" d="M1464 1090q-94 203-283 323.5T768 1536q-157-1-299-62t-244.5-163.5T61 1066T0 768q0-205 97.5-378t267-276.5T738 2q43-2 62 38q17 42-16 72q-176 164-176 400q0 111 43 211.5t115 173t172.5 116T1151 1056q119 0 228-51q41-18 72 13t13 72"/>
+                </svg>
+              </div>
+              <div class="toggle-sun" title="Enable light mode" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
+                    <path stroke-linecap="round" d="m9.15 9.15l2.228 2.228M3 24h3.15m3 14.85l2.228-2.228M38.85 38.85l-2.228-2.228M45 24h-3.15m-3-14.85l-2.228 2.228M24 3v3.15"/>
+                    <path fill="currentColor" d="M24 36c6.627 0 12-5.373 12-12s-5.373-12-12-12s-12 5.373-12 12s5.373 12 12 12Z"/>
+                    <path stroke-linecap="round" d="M24 45v-3.15"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            {{ else if eq .Site.Params.color_scheme "light" }}
+            <div class="toggle-theme theme-light">
+              <div class="toggle-sun" title="Enable light mode" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
+                    <path stroke-linecap="round" d="m9.15 9.15l2.228 2.228M3 24h3.15m3 14.85l2.228-2.228M38.85 38.85l-2.228-2.228M45 24h-3.15m-3-14.85l-2.228 2.228M24 3v3.15"/>
+                    <path fill="currentColor" d="M24 36c6.627 0 12-5.373 12-12s-5.373-12-12-12s-12 5.373-12 12s5.373 12 12 12Z"/>
+                    <path stroke-linecap="round" d="M24 45v-3.15"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            {{ else if eq .Site.Params.color_scheme "dark" }}
+            <div class="toggle-theme theme-dark">
+              <div class="toggle-moon" title="Enable dark mode" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 1472 1536" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="currentColor" d="M1464 1090q-94 203-283 323.5T768 1536q-157-1-299-62t-244.5-163.5T61 1066T0 768q0-205 97.5-378t267-276.5T738 2q43-2 62 38q17 42-16 72q-176 164-176 400q0 111 43 211.5t115 173t172.5 116T1151 1056q119 0 228-51q41-18 72 13t13 72"/>
+                </svg>
+              </div>
+            </div>
+            {{ else }}
+            <div class="toggle-theme toggle-theme-js">
+              <div class="toggle-moon" title="Enable dark mode" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 1472 1536" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="currentColor" d="M1464 1090q-94 203-283 323.5T768 1536q-157-1-299-62t-244.5-163.5T61 1066T0 768q0-205 97.5-378t267-276.5T738 2q43-2 62 38q17 42-16 72q-176 164-176 400q0 111 43 211.5t115 173t172.5 116T1151 1056q119 0 228-51q41-18 72 13t13 72"/>
+                </svg>
+              </div>
+              <div class="toggle-sun" title="Enable light mode" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
+                    <path stroke-linecap="round" d="m9.15 9.15l2.228 2.228M3 24h3.15m3 14.85l2.228-2.228M38.85 38.85l-2.228-2.228M45 24h-3.15m-3-14.85l-2.228 2.228M24 3v3.15"/>
+                    <path fill="currentColor" d="M24 36c6.627 0 12-5.373 12-12s-5.373-12-12-12s-12 5.373-12 12s5.373 12 12 12Z"/>
+                    <path stroke-linecap="round" d="M24 45v-3.15"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            {{ end }}
+            <i class="nav__icon icon__search fa-solid fa-magnifying-glass"></i>
+          </div>
+
+        </nav>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+
+{{ partial "search.html" . }}

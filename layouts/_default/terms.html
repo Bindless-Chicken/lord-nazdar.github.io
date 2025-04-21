@@ -1,0 +1,24 @@
+{{ define "main" }}
+<!-- begin tags -->
+<section class="tags">
+  <div class="tags__inner">
+    <div class="container">
+      <div class="row">
+        <div class="col col-12">
+          <div class="tag__info">
+            <h2 class="tag__name">{{ humanize .Title }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container animate">
+      <div class="terms-tags">
+        {{ range .Pages }}
+          <a href="{{ .Permalink }}" class="terms-tags__link">{{ .Title }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end tags -->
+{{ end }}

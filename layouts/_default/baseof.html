@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ partial "head.html" . }}
+
+<body>
+
+  {{ template "_internal/google_analytics.html" . }}
+
+  <!-- begin global wrap -->
+  <div class="global-wrap">
+
+    {{ if and (.Site.Params.hero.enable) (.Site.Params.hero.hero__image) (.IsHome) }}
+    <!-- begin hero image -->
+    <div class="hero__image">
+      <div class="hero__image__inner">
+        <img class="lazy" data-src="{{.Site.Params.hero.hero__image}}" alt="{.Site.Params.hero.hero__title}}">
+      </div>
+    </div>
+    <!-- end hero image -->
+    {{ end }}
+
+    {{ partial "header.html" . }}
+
+    <!-- begin content -->
+    <main class="content" aria-label="Content">
+      {{ block "main" . }}{{ end }}
+    </main>
+    <!-- end content -->
+
+    {{ partial "subscribe.html" . }}
+
+    {{ partial "footer.html" . }}
+
+  </div>
+  <!-- end global wrap -->
+
+  {{ partial "javascripts.html" . }}
+
+</body>
+
+</html>

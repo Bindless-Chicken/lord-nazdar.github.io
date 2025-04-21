@@ -1,0 +1,68 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
+
+  <title>{{ if not .IsHome }}{{ humanize .Title }}{{ .Params.name }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{if .IsHome}}{{ .Site.Params.description }}{{else}}{{ .Description }}{{end}}">
+
+  {{ with .OutputFormats.Get "rss" -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if not .IsHome }}{{ .Title }}{{ .Params.name }} | {{ end }}{{ .Site.Title }}">
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+  {{ if .IsHome}}<meta name="twitter:image" content="{{ .Site.Params.hero.hero__image | absURL }}">{{ else }}<meta name="twitter:image" content="{{ .Params.Image | absURL }}">{{ end }}
+
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }}{{ .Params.name }} | {{ end }}{{ .Site.Title }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+  {{ if .IsHome}}<meta property="og:image" content="{{ .Site.Params.hero.hero__image | absURL }}">{{ else }}<meta property="og:image" content="{{ .Params.Image | absURL }}">{{ end }}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700&family=Noto+Serif:wght@700&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
+        ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
+        />
+
+  <script>
+    {{ if eq .Site.Params.color_scheme "auto" }}
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.setAttribute("dark", "");
+      document.documentElement.classList.add('dark-mode');
+    }
+    {{ else if eq .Site.Params.color_scheme "light" }}
+      document.documentElement.setAttribute("light", "");
+      document.documentElement.classList.add('light-mode');
+    {{ else if eq .Site.Params.color_scheme "dark" }}
+      document.documentElement.setAttribute("dark", "");
+      document.documentElement.classList.add('dark-mode');
+    {{ else }}
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.setAttribute("dark", "");
+      document.documentElement.classList.add('dark-mode');
+    }
+    {{ end }}
+  </script>
+
+  {{ if .Param "math" }}
+    {{ partialCached "math.html" . }}
+  {{ end }}
+
+  <!-- CSS -->
+  {{ with resources.Get "sass/main.scss" | toCSS | minify }}
+  <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
+
+</head>

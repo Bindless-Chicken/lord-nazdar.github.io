@@ -1,0 +1,106 @@
+{{ if (.Site.Params.tag.enable) }}
+{{ $favorite_tag := (index .Site.Taxonomies.tags (lower .Site.Params.tag.tag)).Pages }}
+<!-- begin section-tag -->
+<section class="section section-tag videos animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="section__inner">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">{{ humanize .Site.Params.tag.tag | safeHTML }}</h2>
+              <a class="section__link" href="{{ "/tags/" | relLangURL }}{{ .Site.Params.tag.tag | urlize }}">See more<i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="row">
+          {{ range $index, $element := $favorite_tag }}
+            <div class="article col col-3 col-w-4 col-d-6 col-t-12">
+              <div class="article__inner">
+
+                <div class="article__head">
+                  {{ if .Params.video_embed }}
+                  <div class="video-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                      <polygon points="40,30 65,50 40,70"></polygon>
+                    </svg>
+                  </div>
+                  {{ end }}
+
+                  {{ if .Params.Image }}
+                  <a class="article__image" href="{{ .RelPermalink }}">
+                    <img class="lazy" data-src="{{ .Params.Image | absURL }}" alt="{{ .Title }}">
+                  </a>
+                  {{ end }}
+                </div>
+
+                <div class="article__content">
+
+                  {{ if .Params.tags }}
+                  <div class="article__tags">
+                    {{ $tags_color := .Params.tags_color}}
+                    {{ range (.GetTerms "tags") }}
+                      <a href="{{ .Permalink }}" class="article__tag{{ if $tags_color }} tag-color-js{{ end }}" {{ if $tags_color }}data-accent="{{ $tags_color }}" style="color: {{ $tags_color }};"{{ end }}>{{ .LinkTitle }}</a>
+                    {{ end }}
+                  </div>
+                  {{ end }}
+
+                  <h2 class="article__title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  </h2>
+
+                  {{ if (eq $index 0) }}
+                    <div class="article__excerpt">{{ if .Description }}{{ .Description }}{{ else }}{{ truncate 200 .Summary | safeHTML }}{{ end }}</div>
+                  {{ end }}
+
+                  <div class="article__meta">
+
+                    {{ if .Params.authors }}
+                    <div class="article__author__box">
+                    {{ range .Params.authors }}
+                      {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                        <a href="{{ .Permalink }}" class="article__author__image">
+                          <img class="lazy" data-src="{{ .Params.image }}" alt="{{ .Params.name }}">
+                        </a>
+                      {{ end }}
+                    {{ end }}
+                    </div>
+                    {{ end }}
+
+                    <div class="article__meta__bottom">
+                      {{ if .Params.authors }}
+                      {{ if gt .Params.authors 2 }}
+                      <div class="article__meta__inner">
+                        {{ range first 1 .Params.authors }}
+                          {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                            <a class="article__author__name article__author__hidden" href="{{ .Permalink }}">{{ .Params.name }}</a><span> and others</span>
+                          {{ end }}
+                        {{ end }}
+                      </div>
+                      {{ else }}
+                      <div class="article__meta__inner">
+                        {{ range first 2 .Params.authors }}
+                          {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                            <a class="article__author__name" href="{{ .Permalink }}">{{ .Params.name }}</a>
+                          {{ end }}
+                        {{ end }}
+                      </div>
+                      {{ end }}
+                      {{ end }}
+                      <time class="article__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+                      <span class="article__reading__time" >{{printf "~%d min" .ReadingTime}}</span>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end section-tag -->
+{{ end }}

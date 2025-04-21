@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+<!-- begin hero -->
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="hero__inner">
+          <h1 class="hero__title">{{ .Title }}</h1>
+          {{ if .Description }}
+            <div class="hero__description">{{ .Description }}</div>
+          {{ else }}
+            <div class="hero__description">{{ .Content }}</div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end hero -->
+
+<div class="videos-page container animate">
+  <div class="row">
+    {{ range (where (where .Site.RegularPages "Type" "in" site.Params.mainSections) ".Params.video_embed" "!=" nil) }}
+      {{ partial "article" . }}
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}

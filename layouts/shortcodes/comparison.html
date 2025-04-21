@@ -1,0 +1,18 @@
+<img-comparison-slider class="comparison-slider slider-example-opacity-and-size">
+  {{- if .Get "image_1_text" -}}
+    <figure slot="first" class="before">
+      <img width="100%" src="{{ .Get "image_1_src" }}">
+      <figcaption>{{ .Get "image_1_text" }}</figcaption>
+    </figure>
+  {{- else -}}
+    <img slot="first" src="{{ .Get "image_1_src" }}" />
+  {{- end -}}
+  {{- if .Get "image_2_text" -}}
+    <figure slot="second" class="after">
+      <img width="100%" src="{{ .Get "image_2_src" }}">
+      <figcaption>{{ .Get "image_2_text" }}</figcaption>
+    </figure>
+  {{- else -}}
+    <img slot="second" src="{{ .Get "image_2_src" }}" />
+  {{- end -}}
+</img-comparison-slider>

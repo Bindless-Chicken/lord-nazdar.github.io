@@ -1,0 +1,28 @@
+{{ if (.Site.Params.videos.enable) }}
+<!-- begin videos-->
+<section class="section videos animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="section__inner">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">{{ .Site.Params.videos.videos__title | safeHTML }}</h2>
+              <a class="section__link" href="/videos">More videos<i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            {{ if .Site.Params.videos.videos__description }}
+              <p class="section__description">{{ .Site.Params.videos.videos__description }}</p>
+            {{ end }}
+          </div>
+          <div class="row">
+          {{ range (where (where .Site.RegularPages "Type" "in" site.Params.mainSections) ".Params.video_embed" "!=" nil) }}
+            {{ partial "article.html" . }}
+          {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end videos -->
+{{ end }}

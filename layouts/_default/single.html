@@ -1,0 +1,216 @@
+{{ define "main" }}
+
+{{ if or (eq .Section "post") (eq .Section "posts") }}
+
+<div class="container">
+  <div class="post-head">
+
+    <div class="post__info{{ if .Params.video_embed }} post__info-video{{ end }}">
+
+      <div class="post__tags">
+        {{ range ($.GetTerms "tags") }}
+          <a href="{{ .Permalink }}" class="post__tag{{ if $.Params.tags_color }} tag-color-js{{ end }}" {{ if $.Params.tags_color }}data-accent="{{ $.Params.tags_color }}" style="color: {{ $.Params.tags_color }};"{{ end }}>{{ .LinkTitle }}</a>
+        {{ end }}
+      </div>
+
+      <h1 class="post__title">{{ .Title }}</h1>
+
+      {{ if .Site.Params.description }}
+        <p class="post__description">{{ .Params.description }}</p>
+      {{ end }}
+
+      <div class="post__meta">
+
+        {{ if .Params.authors }}
+        <div class="post__author__box">
+          {{ range .Params.authors }}
+            {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+              <a href="{{ .Permalink }}" class="post__author__image">
+                <img class="lazy" data-src="{{ .Params.image }}" alt="{{ .Params.name }}">
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
+        {{ end }}
+
+        <div class="post__meta__bottom">
+          {{ if .Params.authors }}
+          {{ if gt .Params.authors 2 }}
+          <div class="post__meta__inner">
+            {{ range first 1 .Params.authors }}
+              {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                <a class="post__author__name post__author__hidden" href="{{ .Permalink }}">{{ .Params.name }}</a><span> and others</span>
+              {{ end }}
+            {{ end }}
+          </div>
+          {{ else }}
+          <div class="post__meta__inner">
+            {{ range first 2 .Params.authors }}
+              {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                <a class="post__author__name" href="{{ .Permalink }}">{{ .Params.name }}</a>
+              {{ end }}
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ end }}
+          <time class="post__date" datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2 Jan 2006"
+            }}</time>
+          <span class="post__reading__time" >{{printf "~%d min" .ReadingTime}}</span>
+        </div>
+      </div>
+
+    </div>
+
+      {{ if .Params.video_embed }}
+      <div class="post-video">
+        <div class="post-video__wrap">
+          <iframe src="{{ .Params.video_embed }}" loading="lazy" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+      </div>
+      {{ else }}
+
+      {{ if .Params.image }}
+      <div class="post-image">
+        <img class="lazy" data-src="{{ .Params.Image | absURL }}" alt="{{ .Title }}">
+      </div>
+      {{ end }}
+      {{ end }}
+
+  </div>
+</div>
+
+<!-- begin post -->
+<div class="container">
+  <article class="post">
+    <div class="post__content">
+      {{ if .Params.toc }}
+      <div class="post__toc">
+        <h2 class="post__toc__title">Table of Contents</h2>
+        {{ .TableOfContents }}
+      </div>
+      {{ end }}
+      {{ .Content }}
+    </div>
+    {{ partial "share-buttons.html" . }}
+  </article>
+</div>
+<!-- end post -->
+
+<div class="container">
+  <div class="card-author{{ if gt .Params.authors 1 }} card-author--multiple{{ end }}">
+
+    <div class="card-author__media">
+      {{ if .Params.authors }}
+        {{ range .Params.authors }}
+          {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+            <a class="card-author__image" href="{{ .Permalink }}">
+              <img class="lazy" data-src="{{ .Params.image }}" alt="{{ .Params.name }}">
+            </a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+
+    <div class="card-author__content">
+      <div class="card-author__role">{{ if gt .Params.authors 1 }}This post was a collaboration between{{ else }}Written by{{ end }}</div>
+      {{ if .Params.authors }}
+
+      {{ if gt .Params.authors 2 }}
+      <div class="card-author__inner">
+        {{ range first 1 .Params.authors }}
+          {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+            <h3 class="card-author__name"><a href="{{ .Permalink }}" class="card-author__link">{{ .Params.name }}</a> <span> and others</span></h3>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      {{ else if gt .Params.authors 1 }}
+
+      <div class="card-author__inner">
+        {{ range first 2 .Params.authors }}
+          {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+            <h3 class="card-author__name"><a href="{{ .Permalink }}" class="card-author__link">{{ .Params.name }}</a></h3>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      {{ else if gt .Params.authors 0 }}
+
+      <div class="card-author__inner">
+        {{ range first 1 .Params.authors }}
+          {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+          <h3 class="card-author__name card-author__hidden"><a href="{{ .Permalink }}" class="card-author__link">{{ .Params.name }}</a></h3>
+          {{ .Params.shortbio }}
+          {{ end }}
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ end }}
+    </div>
+
+  </div>
+</div>
+
+{{ partial "related-posts.html" . }}
+
+{{ if and (.Site.Params.disqus.disqusShortname) (.Site.Params.disqus.enable) }}
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        {{ partial "disqus-comments.html" . }}
+      </div>
+    </div>
+  </div>
+{{ end }}
+
+{{ else }}
+
+<div class="container">
+  <div class="page-head">
+
+    <div class="page__info">
+      <h1 class="page__title">{{ .Title }}</h1>
+      {{ if .Params.description }}
+        <div class="page__description">{{ .Params.description }}</div>
+      {{ end }}
+    </div>
+
+    {{ if .Params.video_embed }}
+    <div class="page-video">
+      <div class="page-video__wrap">
+        <iframe src="{{ .Params.video_embed }}" loading="lazy" width="640" height="360" frameborder="0"
+          webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+    {{ else }}
+
+    {{ if .Params.image }}
+    <div class="page-image">
+      <img class="lazy" data-src="{{ .Params.Image | absURL }}" alt="{{ .Title }}">
+    </div>
+    {{ end }}
+
+    {{ end }}
+  </div>
+</div>
+
+<!-- begin page -->
+<div class="container">
+  <article class="page">
+    <div class="page__content">
+      {{ if .Params.toc }}
+      <div class="page__toc">
+        <h2 class="page__toc__title">Table of Contents</h2>
+        {{ .TableOfContents }}
+      </div>
+      {{ end }}
+      {{ .Content }}
+    </div>
+  </article>
+</div>
+<!-- end page -->
+
+{{ end }}
+
+{{ end }}

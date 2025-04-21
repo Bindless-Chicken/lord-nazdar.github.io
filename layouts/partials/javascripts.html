@@ -1,0 +1,5 @@
+{{ $script := resources.Get "js/scripts.js" }}
+{{ $commonJs := resources.Get "js/common.js" }}
+
+<script src="{{ ($script | minify | fingerprint).RelPermalink }}"></script>
+<script src="{{ ($commonJs | minify | fingerprint).RelPermalink }}"></script>

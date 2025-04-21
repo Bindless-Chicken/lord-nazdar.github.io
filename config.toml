@@ -1,0 +1,178 @@
+#-------------------------------
+# General Site Settings
+baseURL = "https://blog.thomaspoulet.fr"
+languageCode = "en-us"
+title = "Thomas Poulet"
+googleAnalytics = ""
+
+
+#-------------------------------
+# Pagination settings:
+[pagination]
+  pagerSize = 7
+
+
+#-------------------------------
+# Main Menu
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+
+      [[menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/authors/thomas/"
+        weight = 3
+
+    # Footer Menu
+    [[menu.footer]]
+      identifier = "home"
+      name = "Home"
+      url = "/"
+      weight = 1
+
+    [[menu.footer]]
+      identifier = "about"
+      name = "About"
+      url = "/authors/thomas"
+      weight = 2
+
+
+[params]
+  logo = ""
+  logo_dark = ""
+  description = "Thomas Poulet presonal blog about rendering, technology, and game development"
+  color_scheme = "auto"
+  math = true
+
+
+#-------------------------------
+# Hero Settings
+[params.hero]
+  enable = true
+  hero__title = "Rendering Dreams"
+  hero__description = "Turning wild ideas into reality through engineering and game development. Let's create, share, and push boundaries together!"
+
+
+#-------------------------------
+# Blog Section Settings
+[params.blog]
+  enable = true
+  blog__title = "Latest Posts"
+  blog__description = ""
+
+
+#-------------------------------
+# Videos Section Settings
+[params.videos]
+  enable = false
+  videos__title = "Latest Videos"
+  videos__description = ""
+
+
+#-------------------------------
+# Tag Section Settings
+[params.tag]
+  enable = true
+  tag = "Frame Analysis" # To display the tag section, specify your favorite tag.
+
+
+#-------------------------------
+# Author Section Settings
+[params.author_section]
+  enable = true
+  author__section__title = "Hey! I'm Thomas. I’m a game engineer, and public speaker."
+  author__section__description = "I'm a Rendering Engineer turned generalist. I help creative ideas come to life by making computer do magic. I've worked on various AAA production, delivering world class rendering features, and getting ambitious titles to run on the smallest platforms. I love to share about what I do and inspire others to Create."
+  aurhor__section__button__text = "More About Me"
+  aurhor__section__button__link = "/authors/thomas"
+  author__section__big__image = "/images/bio/pic-2.jpg"
+  author__section__small__image = "/images/bio/pic-1.jpg"
+  author__section__image__alt = "Thomas Poulet"
+
+
+## Newsletter
+#[params.mailchimp]
+#  enable = false
+#  mailchimp__title = "Get interesting news"
+#  mailchimp__description = "Subscribe to our newsletter and we’ll send you the emails of latest posts."
+#  mailchimp__identifier = "gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp" # Add your MailChimp form identifier. For example - gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp
+#  mailchimp__input__text = "Your email address"
+#  mailchimp__button__text = "Subscribe"
+#  mailchimp__background__image = "https://placehold.co/1920x1080"
+
+
+#-------------------------------
+# Footer Settings
+[params.footer]
+  footer__description = "Rendering Engineer turned generalist. I love to share about what I do and inspire others to Create."
+
+# Social Links
+[[params.social]]
+  icon = "fa-brands fa-github"
+  name = "Github"
+  link = "https://github.com/Bindless-Chicken"
+
+[[params.social]]
+  icon = "fa-brands fa-linkedin"
+  name = "LinkedIn"
+  link = "https://www.linkedin.com/in/thomas-poulet"
+
+[[params.social]]
+  icon = "fa-brands fa-mastodon"
+  name = "Mastodon"
+  link = "https://mastodon.gamedev.place/@bindlesschicken"
+
+
+#-------------------------------
+# Contact Settings
+#[params.contact]
+#  form_id = "your@email.com" # Add your form_id
+
+
+#-------------------------------
+# Comment Section (Disqus)
+[params.disqus]
+  enable = false
+  disqusShortname = ""
+
+
+[taxonomies]
+  author = "authors"
+  tag = "tags"
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+
+
+  [markup.tableOfContents]
+    startLevel = 2
+    ordered = false
+    endLevel = 3
+
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+
+[markup.highlight]
+  codeFences = true
+  guessSyntax = true
+  noClasses = false
