@@ -3,7 +3,7 @@
 baseURL = "https://blog.thomaspoulet.fr"
 languageCode = "en-us"
 title = "Thomas Poulet"
-googleAnalytics = "UA-49597255-2"
+googleAnalytics = ""
 
 
 #-------------------------------
