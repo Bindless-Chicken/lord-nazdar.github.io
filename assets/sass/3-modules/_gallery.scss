@@ -27,6 +27,10 @@
     grid-template-columns: repeat(4, auto);
   }
 
+  &-column-5 {
+    grid-template-columns: repeat(5, auto);
+  }
+
   img {
     margin-left: 24px;
     margin-bottom: 24px;
